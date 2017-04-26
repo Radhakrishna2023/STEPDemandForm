@@ -1,0 +1,26 @@
+<div class="container">
+<h2 align="center" style="color:#0099FF back">Demand Intake</h2>
+<form name="demandlisting">
+	
+	<div class="table-responsive">
+	<table class="table table-bordered">
+	<thead>
+		<tr>
+		<th>Demand Intake Id</th>
+		<th>Subject</th>
+		<th>Business Objective</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let demand of demands">
+		<td><a href="http://localhost:4200/it?demandIntakeId={{demand.demandIntakeId}}">{{demand.demandIntakeId}}</a></td>		
+		<td>{{demand.subject}}</td>		
+		<td>{{demand.businessObjective}}</td>
+		</tr>
+	</tbody>
+	</table>
+		       
+    </div>
+
+</form>
+</div>
