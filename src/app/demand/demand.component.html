@@ -1,0 +1,160 @@
+<div class="container">
+<h2 align="center" style="color:#0099FF back">Demand Intake</h2>
+<form name="demand">
+
+    <div class="form-group">
+        <label style="color:#33D1FF; font-size:22px;" >Initiative </label>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="subject" >Subject </label>
+        <input type="text" style="width:300px; border-color: #33D1FF; " class="form-control" required
+        	name="subject" [(ngModel)]="user.subject" [value] ="subject" 
+			(input)="user.subject=$event.target.value">
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="requestOwner" >Request Owner </label>
+        <input type="text" style="width:300px; border-color: #33D1FF; " class="form-control" required
+        	name="requestOwner" [(ngModel)]="user.requestOwner" [value] ="requestOwner" 
+			(input)="user.requestOwner=$event.target.value">         
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="requestDate" >Request Date </label>
+        <input type="date" style="width:300px; border-color: #33D1FF; " class="form-control" required
+            name="requestDate" [(ngModel)]="user.requestDate" [value] ="requestDate" 
+			(input)="user.requestDate=$event.target.value">
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="primaryBusinessContact" >Primary Business Contact<br>(Name, Contact Number) </label>
+        <input type="text" style="width:300px; border-color: #33D1FF; " class="form-control" required
+            name="primaryBusinessContact" [(ngModel)]="user.primaryBusinessContact"
+			[value] ="primaryBusinessContact" (input)="user.primaryBusinessContact=$event.target.value">
+    </div>
+    
+	<div class="form-group">
+		<label class="col-xs-4 control-label" for="regionsInScope" >Regions in Scope </label>
+		  <label class="checkbox-inline" *ngFor="let region of regionsInScope; let i=index">
+			<input type="checkbox" name="regionsInScope" (change)="user.regionsInScope = region.value" 
+			 [checked]="region.value === user.regionsInScope"/>
+			{{region.value}}
+		  </label>
+	</div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="priority" >Priority </label>
+		<label class="radio-inline" *ngFor="let prioriti of priority; let i=index">
+			<input type="radio" name="priority" (click)="user.priority = prioriti.value" 
+			 [checked]="prioriti.value === user.priority"/>
+			{{prioriti.value}}
+		</label>		
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="targetDueDate" >Expected Target Due Date </label>
+		<select style="width:150px; border-color: #33D1FF; " name="targetDueDate">
+		  <option value="FY17">FY17</option>
+		  <option value="FY16">FY16</option>		  
+		</select>
+		<select style="width:150px; border-color: #33D1FF; " name="targetDueDate">
+		  <option value="Q1">Q1</option>
+		  <option value="Q2">Q2</option>
+		  <option value="Q3">Q3</option>
+		  <option value="Q4">Q4</option>
+		</select>		        
+    </div>&nbsp;
+	<div class="form-group">
+        <label class="col-xs-4 control-label" for="uatTesters" >UAT Testers (Regional SMEs) </label>
+		<label class="checkbox-inline" *ngFor="let uatTester of uatTesters; let i=index">
+			<input type="checkbox" name="uatTesters" (change)="user.uatTesters = uatTester.value" 
+			 [checked]="uatTester.value === user.uatTesters"/>
+			{{uatTester.value}}
+		</label>
+    </div>
+    
+    <hr>
+    <div class="form-group">
+        <label style="color:#33D1FF; font-size:22px;" >Business Case </label>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="businessObjective" >Business Objective </label>
+        <textarea style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="businessObjective" [(ngModel)]="user.businessObjective"
+			   [value] ="businessObjective" (input)="user.businessObjective=$event.target.value">
+		</textarea>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="expectedResult" >Describe the solution requested<br> What is the expected result? </label>
+        <textarea style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="expectedResult" [(ngModel)]="user.expectedResult"
+			   [value] ="expectedResult" (input)="user.expectedResult=$event.target.value">
+		</textarea>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="areaofImpact" >Main area of Impact </label>
+        <input type="text" style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="areaofImpact" [(ngModel)]="user.areaofImpact"
+			   [value] ="areaofImpact" (input)="user.areaofImpact=$event.target.value">
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="subArea" >Sub Area, if any </label>
+		<label class="checkbox-inline" *ngFor="let subAre of subArea; let i=index">
+			<input type="checkbox" name="subArea" (change)="user.subArea = subAre.value" 
+			 [checked]="subAre.value === user.subArea"/>
+			{{subAre.value}}
+		</label>		
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="communication" >If Yes to one of the policy/process<br> please detail the change and plan<br> to communicate to stakeholders </label>
+        <textarea style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="communication" [(ngModel)]="user.communication"
+			   [value] ="communication" (input)="user.communication=$event.target.value">
+		</textarea>
+    </div>
+    
+    <hr>
+    <div class="form-group">
+        <label style="color:#33D1FF; font-size:22px;" >Measurement </label>
+    </div>
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="valueAdd" >Describe the Staff Productivity<br> gain/value added </label>
+        <select style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="valueAdd" [(ngModel)]="user.valueAdd" 
+			   [value] ="valueAdd" (change)="user.valueAdd=$event.target.value">
+        <option value="N/A Compliance">N/A Compliance</option>
+		<option value="N/A SOX">N/A SOX</option>
+		<option value="N/A Legal">N/A Legal</option>
+        </select>
+    </div>&nbsp;
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="businessRoi" >Business ROI(non payroll cost<br> savings or Revenue Growth) </label>
+        <select style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="businessRoi" [(ngModel)]="user.businessRoi"
+			   [value] ="businessRoi" (change)="user.businessRoi=$event.target.value">
+        <option value="N/A Compliance">N/A Compliance</option>
+		<option value="N/A SOX">N/A SOX</option>
+		<option value="N/A Legal">N/A Legal</option>
+        </select>
+    </div>&nbsp;
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="risk" >Identify and explain the risk if<br> this Request is not deployed </label>
+        <input type="text" style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="risk" [(ngModel)]="user.risk"
+			   [value] ="risk" (input)="user.risk=$event.target.value">
+    </div>&nbsp;
+    <div class="form-group">
+        <label class="col-xs-4 control-label" for="qualityofWork" >Improvement in Quality of work </label>
+        <select style="width:300px; border-color: #33D1FF; " class="form-control" required
+               name="qualityofWork" [(ngModel)]="user.qualityofWork"
+			   [value] ="qualityofWork" (change)="user.qualityofWork=$event.target.value">
+        <option value="N/A Compliance">N/A Compliance</option>
+		<option value="N/A SOX">N/A SOX</option>
+		<option value="N/A Legal">N/A Legal</option>
+        </select>
+    </div>
+	
+	<hr>
+    <div class="form-group">
+        <div class="col-xs-12">
+            <button type="submit" class="btn btn-info" ngFor="Demand Form" (click)="submitForm(this.user); reset(this);">Submit</button>
+        </div>
+    </div>
+    
+</form>
+</div>
